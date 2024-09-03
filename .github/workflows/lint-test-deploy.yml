@@ -12,7 +12,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 22
 
       - name: Install dependencies
         run: npm install
@@ -30,7 +30,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 22
 
       - name: Install dependencies
         run: npm install
@@ -48,12 +48,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 22
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build project
         run: npm run build
 
-      # Add deployment steps here, e.g., deploy to Vercel, Netlify, AWS, etc.
+      - name: Deploy code
+        run: echo "Deploying ..."
