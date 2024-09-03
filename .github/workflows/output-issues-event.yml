@@ -1,0 +1,17 @@
+name: Output Event Details on Issues
+
+on:
+  issues:
+    types: [opened, edited, closed]
+
+jobs:
+  log-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log event details
+        run: |
+          echo "Event Type: ${{ github.event.action }}"
+          echo "Issue Number: ${{ github.event.issue.number }}"
+          echo "Issue Title: ${{ github.event.issue.title }}"
+          echo "Issue Body: ${{ github.event.issue.body }}"
+          echo "Issue State: ${{ github.event.issue.state }}"
